@@ -1,0 +1,51 @@
+# Energy Publication Project - Git Attributes
+# Ensures consistent line endings and proper file handling
+
+# Text files
+*.py text eol=lf
+*.yaml text eol=lf
+*.yml text eol=lf
+*.md text eol=lf
+*.txt text eol=lf
+*.json text eol=lf
+*.csv text eol=lf
+*.gitignore text eol=lf
+*.gitattributes text eol=lf
+
+# Configuration files
+config/*.yaml text eol=lf
+config/*.yml text eol=lf
+
+# Documentation
+*.md text eol=lf
+docs/**/*.md text eol=lf
+
+# Requirements and setup files
+requirements.txt text eol=lf
+environment.yml text eol=lf
+pyproject.toml text eol=lf
+setup.py text eol=lf
+
+# Git keep files
+*.gitkeep text eol=lf
+
+# Binary files (should be ignored but just in case)
+*.joblib binary
+*.pkl binary
+*.pickle binary
+*.h5 binary
+*.hdf5 binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.pdf binary
+*.svg binary
+
+# Large files (should be ignored)
+*.zip binary
+*.tar.gz binary
+*.rar binary
+*.7z binary
+
+# Auto detect text files and perform LF normalization
+* text=auto

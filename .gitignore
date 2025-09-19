@@ -1,0 +1,294 @@
+# Energy Publication Project - Reproducibility-Focused .gitignore
+# This file ensures only essential, reproducible files are tracked
+
+# =============================================================================
+# PYTHON & ENVIRONMENT
+# =============================================================================
+# Python bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Unnecessary development scripts
+check_class_distribution.py
+implement_class_balancing.py
+realistic_balancing_approach.py
+
+# Environment files
+environment.yml
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv/
+.env/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Python distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# =============================================================================
+# DATA FILES (Keep structure, ignore large data)
+# =============================================================================
+# Raw data files (too large for git)
+data/raw/*.csv
+data/raw/*.parquet
+data/raw/*.h5
+data/raw/*.hdf5
+data/raw/*.xlsx
+data/raw/*.xls
+
+# Dataset directory (duplicate data)
+dataset/
+
+# Processed data files (generated, can be recreated)
+data/processed/*.csv
+data/processed/*.parquet
+data/processed/*.h5
+data/processed/*.hdf5
+
+# Temporary data files
+data/temp/
+data/tmp/
+*.tmp
+
+# =============================================================================
+# RESULTS & OUTPUTS (Keep structure, ignore generated files)
+# =============================================================================
+# Model files (can be retrained) - but keep main results
+results/*.pkl
+results/*.pickle
+results/*.h5
+results/*.hdf5
+# Keep main analysis files for reproducibility
+!results/*_results.json
+!results/*_model.joblib
+!results/*_processed_data.csv
+!results/*_feature_data.csv
+
+# Generated plots (can be regenerated) - but keep main analysis plots
+results/figures/*.png
+results/figures/*.jpg
+results/figures/*.pdf
+results/figures/*.svg
+# Keep main analysis plots for reproducibility
+!results/*_analysis.png
+!results/*_performance.png
+!results/*_distribution.png
+
+# Monitoring logs (can be regenerated)
+results/monitoring/*.jsonl
+results/monitoring/*.log
+results/monitoring/*.txt
+
+# Hyperparameter tuning results (can be regenerated)
+results/hyperparameter_tuning_results.joblib
+results/tuning_results/
+
+# =============================================================================
+# IDE & EDITOR FILES
+# =============================================================================
+# VSCode
+.vscode/
+*.code-workspace
+
+# PyCharm
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# =============================================================================
+# SYSTEM FILES
+# =============================================================================
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# =============================================================================
+# LOGS & TEMPORARY FILES
+# =============================================================================
+# Log files
+*.log
+logs/
+log/
+
+# Temporary files
+*.tmp
+*.temp
+temp/
+tmp/
+
+# Cache files
+.cache/
+*.cache
+
+# =============================================================================
+# DOCUMENTATION BUILD
+# =============================================================================
+# Documentation directory (can be regenerated)
+docs/
+# Sphinx documentation
+docs/_build/
+docs/build/
+
+# =============================================================================
+# TESTING
+# =============================================================================
+# Coverage reports
+htmlcov/
+.coverage
+.coverage.*
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+
+# =============================================================================
+# SECURITY & SENSITIVE DATA
+# =============================================================================
+# API keys and secrets
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+secrets.json
+config/secrets.yaml
+*.key
+*.pem
+
+# =============================================================================
+# LARGE FILES & BINARIES
+# =============================================================================
+# Large binary files
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+# =============================================================================
+# KEEP THESE ESSENTIAL FILES (Explicitly tracked)
+# =============================================================================
+# Configuration files
+!config/config.yaml
+!config/config_fast.yaml
+
+# Source code
+!src/**/*.py
+!scripts/**/*.py
+
+# Documentation
+!README.md
+!docs/**/*.md
+!*.md
+
+# Requirements and dependencies
+!requirements.txt
+!environment.yml
+!pyproject.toml
+!setup.py
+
+# Git and project files
+!.gitignore
+!.gitattributes
+
+# Data structure (empty directories)
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+!results/.gitkeep
+!results/figures/.gitkeep
+!results/monitoring/.gitkeep
+
+# =============================================================================
+# REPRODUCIBILITY NOTES
+# =============================================================================
+# This .gitignore is designed for reproducibility:
+# 1. Keeps all source code and configuration files
+# 2. Excludes large data files that can be downloaded/regenerated
+# 3. Excludes generated results that can be recreated
+# 4. Maintains project structure with .gitkeep files
+# 5. Ensures the repository contains only essential, version-controlled files
+#
+# To reproduce results:
+# 1. Clone repository
+# 2. Install dependencies from requirements.txt
+# 3. Download raw data to data/raw/
+# 4. Run scripts/run_analysis.py
+# 5. Results will be generated in results/
