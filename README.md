@@ -148,11 +148,53 @@ Key configuration sections:
 
 ## Dataset
 
-The project uses the **When2Heat** dataset:
+The project uses the **When2Heat** dataset from the Open Power System Data platform:
 - **Coverage**: Pan-European (28 countries)
-- **Time Period**: 2007-2022
+- **Time Period**: 2008-2022 (hourly resolution)
 - **Features**: Heat demand, COP efficiency, temporal features
 - **Stress Rate**: ~1.5% (highly imbalanced)
+- **Data Source**: [When2Heat Heating Profiles](https://data.open-power-system-data.org/when2heat/2023-07-27)
+
+### Dataset Citation
+
+If you use this dataset in your research, please cite:
+
+```bibtex
+@dataset{when2heat_2023,
+  title={When2Heat Heating Profiles},
+  author={Ruhnau, Oliver and Muessel, Jarusch},
+  year={2023},
+  publisher={Open Power System Data},
+  doi={10.25832/when2heat/2023-07-27},
+  url={https://data.open-power-system-data.org/when2heat/2023-07-27}
+}
+```
+
+**Original Dataset Citation:**
+```bibtex
+@article{ruhnau2019time,
+  title={Time series of heat demand and heat pump efficiency for energy system modeling},
+  author={Ruhnau, Oliver and Hirth, Lion and Praktiknjo, Aaron},
+  journal={Scientific Data},
+  volume={6},
+  number={1},
+  pages={189},
+  year={2019},
+  publisher={Nature Publishing Group},
+  doi={10.1038/s41597-019-0199-y}
+}
+```
+
+**Working Paper Citation:**
+```bibtex
+@techreport{ruhnau2023update,
+  title={Update and extension of the When2Heat dataset},
+  author={Ruhnau, Oliver and Muessel, Jarusch},
+  year={2023},
+  institution={Econstor},
+  url={http://hdl.handle.net/10419/249997}
+}
+```
 
 ## Technical Details
 
