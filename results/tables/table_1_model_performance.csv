@@ -1,0 +1,4 @@
+Model,Accuracy,Precision,Recall,F1-Score,G-Mean,Balanced Accuracy,AUC-ROC,AUC-PR,Optimal Threshold
+Logistic Regression,0.9884,0.6316,0.5806,0.6050,0.7600,0.7877,0.9540,0.5355,0.8445
+Gradient Boosting,0.9888,0.5864,0.9032,0.7111,0.9457,0.9467,0.9881,0.8245,0.0523
+XGBoost,0.9918,0.6770,0.8790,0.7649,0.9345,0.9363,0.9930,0.8155,0.9654
