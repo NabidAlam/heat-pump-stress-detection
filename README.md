@@ -1,17 +1,6 @@
-# Energy Publication Project
+# Heat Pump Stress Detection
 
-A machine learning project for energy system stress detection using cost-sensitive learning and threshold optimization.
-
-## Key Features
-
-- **Cost-Sensitive Learning**: Advanced approach for handling imbalanced datasets without synthetic data generation
-- **Threshold Optimization**: Dynamic threshold adjustment for optimal classification performance
-- **🌍 Pan-European Analysis**: Comprehensive analysis across 28 European countries
-- **📊 Professional Visualizations**: IEEE conference-ready figures and plots
-- **🔬 State-of-the-Art Methodology**: Novel approach combining cost-sensitive learning with threshold optimization
-- **📈 Advanced Metrics**: G-mean, balanced accuracy, and other imbalanced data metrics
-- **🔄 Reproducible Research**: Complete setup and documentation for reproducibility
-- **⚡ Efficient Processing**: Optimized for large-scale energy system data
+A machine learning project for detecting stress hours in heat pump systems using pan-European energy data.
 
 ## Installation
 
@@ -28,15 +17,13 @@ pip install -r requirements.txt
 
 ### 3. Run the analysis
 ```bash
-python scripts/run_analysis.py --country None
+python scripts/run_focused_analysis.py --scope pan_european
 ```
 
-## Results
-
-Results will be generated in the `results/` directory:
-- `pan_european_results.json` - Complete analysis results
-- `pan_european_model.joblib` - Trained model
-- `pan_european_*.png` - Generated plots
+### 4. Generate paper figures
+```bash
+python scripts/generate_paper_figures.py
+```
 
 ## Requirements
 
