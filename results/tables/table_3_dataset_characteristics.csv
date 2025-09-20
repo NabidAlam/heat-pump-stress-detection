@@ -1,0 +1,10 @@
+Characteristic,Value
+Country,Germany (DE)
+Time Period,2013-2015
+Number of Winters,3
+Number of Features,12
+Stress Rate (%),1.48%
+Evaluation Method,rolling_origin_validation
+Imbalanced Data Handling,cost_sensitive_learning + threshold_optimization
+Analysis Type,improved_conference_paper
+Data Source,When2Heat Dataset
