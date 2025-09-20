@@ -1,0 +1,4 @@
+Model,Default Threshold (0.5),Optimal Threshold,F1-Score Improvement,G-Mean Improvement,Balanced Accuracy Improvement
+Logistic Regression,0.5489,0.8445,0.0561,-0.0721,-0.0565
+Gradient Boosting,0.8382,0.0523,-0.1271,0.0441,0.0404
+XGBoost,0.4887,0.9654,0.2762,-0.0301,-0.0283
