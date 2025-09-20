@@ -1,0 +1,97 @@
+# Focused Configuration for 5-Page Paper
+# ======================================
+
+# Analysis scope
+analysis:
+  scope: "pan_european"  # Use all 28 EU countries
+  years: [2019, 2020, 2021]  # 2-3 winters
+  focus: "stress_detection_and_dr"  # Core focus for paper
+
+# Stress detection configuration (aligned with paper scope)
+stress_detection:
+  demand_percentile: 90.0  # P90 for high demand
+  cop_percentile: 20.0     # P20 for low COP (inverted)
+  seasonal_window: 168     # 1 week window for seasonal thresholds
+  method: "percentile_based"  # Simple percentile-based approach
+
+# Feature engineering (focused for 5-page paper)
+features:
+  time_features: ["hour", "weekday", "month"]
+  rolling_windows: [24, 168]  # 24h and 1 week
+  lag_periods: [24]  # Previous day
+  seasonal_indicators: true
+  interaction_features: true
+
+# Model configuration (lightweight for paper)
+models:
+  primary: "logistic_regression"  # Interpretable
+  secondary: "xgboost"            # Gradient boosting
+  calibration: true
+  hyperparameter_tuning: false    # Keep simple for paper
+
+# Evaluation configuration
+evaluation:
+  method: "rolling_origin"  # Rolling origin evaluation
+  horizon: 24  # 24-hour horizon
+  metrics: ["pr_auc", "f1", "brier_score", "gmean"]
+  cv_folds: 5
+
+# DR heuristic configuration
+dr_heuristic:
+  scenarios:
+    - name: "conservative"
+      threshold_tau: 0.6
+      shift_fraction_alpha: 0.1
+    - name: "moderate"
+      threshold_tau: 0.7
+      shift_fraction_alpha: 0.15
+    - name: "aggressive"
+      threshold_tau: 0.8
+      shift_fraction_alpha: 0.2
+  peak_window: [17, 21]  # 17-21 hours
+  shift_window: [1, 5]   # 1-5 hours
+  daily_energy_cap: true
+
+# Preprocessing (minimal for paper)
+preprocessing:
+  imputation_method: "knn"
+  scaling_method: "robust"
+  outlier_detection: true
+  outlier_contamination: 0.1
+
+# Output configuration
+output:
+  generate_figures: true
+  generate_tables: true
+  save_models: true
+  save_data: true
+  figures_dir: "results/figures"
+  tables_dir: "results/tables"
+
+# Visualization configuration
+visualization:
+  style: "professional"
+  color_palette: "academic"
+  figure_size: [12, 8]
+  dpi: 300
+  save_format: "png"
+
+# Logging configuration
+logging:
+  level: "INFO"
+  format: "{time:HH:mm:ss} | {level} | {message}"
+  file_logging: false  # Keep simple for paper
+
+# Performance configuration
+performance:
+  n_jobs: -1
+  memory_limit: "4GB"
+  chunk_size: 10000
+
+# Validation configuration
+validation:
+  check_data_quality: true
+  validate_results: true
+  min_stress_rate: 0.001
+  max_stress_rate: 0.5
+  max_missing_ratio: 0.1
