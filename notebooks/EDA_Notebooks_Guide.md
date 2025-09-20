@@ -112,7 +112,7 @@ Based on the data quality assessment:
 
 ---
 
-## 🔬 **State-of-the-Art Methodology**
+## **State-of-the-Art Methodology**
 
 ### **Data Integrity Approach:**
 - **No Imputation**: Using only complete data (2008-2015) to maintain scientific integrity
@@ -189,15 +189,6 @@ jupyter notebook 05_Data_Quality_Assessment.ipynb
 
 ---
 
-## **Next Steps After EDA**
-
-1. **Fix data quality issues** identified in EDA
-2. **Implement proper preprocessing** based on findings
-3. **Use realistic model parameters** (no perfect scores)
-4. **Apply temporal validation** to prevent data leakage
-5. **Validate results** against EDA insights
-
----
 
 ## **Notes**
 

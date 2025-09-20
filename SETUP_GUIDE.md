@@ -201,10 +201,10 @@ python -c "import torch; print(torch.cuda.is_available())"
 ### System Requirements by Dataset Size
 | Dataset Size | RAM Required | GPU VRAM | Training Time |
 |--------------|--------------|----------|---------------|
-| 20K samples  | 8GB         | 2GB      | 10-30 min     |
-| 50K samples  | 16GB        | 4GB      | 30-60 min     |
-| 100K samples | 32GB        | 8GB      | 1-2 hours     |
-| Full (131K)  | 64GB        | 16GB     | 2-4 hours     |
+| 20K samples  | 8GB          | 2GB      | 10-30 min     |
+| 50K samples  | 16GB         | 4GB      | 30-60 min     |
+| 100K samples | 32GB         | 8GB      | 1-2 hours     |
+| Full (131K)  | 64GB         | 16GB     | 2-4 hours     |
 
 ### Performance Improvements
 - **Transformer vs XGBoost**: Expected 15-25% improvement in F1-score

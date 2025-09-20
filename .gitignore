@@ -1,5 +1,5 @@
-# Energy Publication Project - Reproducibility-Focused .gitignore
-# This file ensures only essential, reproducible files are tracked
+# Heat Pump Stress Detection Project - .gitignore
+# Ensures only essential, reproducible files are tracked
 
 # =============================================================================
 # PYTHON & ENVIRONMENT
@@ -10,20 +10,13 @@ __pycache__/
 *$py.class
 *.so
 
-# Unnecessary development scripts
-check_class_distribution.py
-implement_class_balancing.py
-realistic_balancing_approach.py
-
-# Environment files
-environment.yml
-
 # Virtual environments
 venv/
 env/
 ENV/
 .venv/
 .env/
+conda-meta/
 
 # Jupyter Notebook checkpoints
 .ipynb_checkpoints/
@@ -46,6 +39,9 @@ wheels/
 .installed.cfg
 *.egg
 MANIFEST
+
+# Conda environment files (keep for reference but ignore during development)
+environment.yml
 
 # =============================================================================
 # DATA FILES (Keep structure, ignore large data)
@@ -72,6 +68,10 @@ data/temp/
 data/tmp/
 *.tmp
 
+# When2Heat dataset (large external dataset)
+when2heat.csv
+when2heat/
+
 # =============================================================================
 # RESULTS & OUTPUTS (Keep structure, ignore generated files)
 # =============================================================================
@@ -95,6 +95,13 @@ results/figures/*.svg
 !results/*_analysis.png
 !results/*_performance.png
 !results/*_distribution.png
+
+# State-of-the-art figures (keep for publication)
+!results/sota_figures/*.png
+!results/sota_figures/*.pdf
+
+# Publication tables (keep for paper writing)
+!results/tables/*.csv
 
 # Monitoring logs (can be regenerated)
 results/monitoring/*.jsonl
@@ -248,20 +255,23 @@ config/secrets.yaml
 # =============================================================================
 # Configuration files
 !config/config.yaml
-!config/config_fast.yaml
+!config/config_focused.yaml
 
 # Source code
 !src/**/*.py
 !scripts/**/*.py
 
+# EDA Notebooks
+!notebooks/**/*.ipynb
+!notebooks/**/*.md
+
 # Documentation
 !README.md
-!docs/**/*.md
+!SETUP_GUIDE.md
 !*.md
 
 # Requirements and dependencies
 !requirements.txt
-!environment.yml
 !pyproject.toml
 !setup.py
 
@@ -275,6 +285,12 @@ config/secrets.yaml
 !results/.gitkeep
 !results/figures/.gitkeep
 !results/monitoring/.gitkeep
+!results/sota_figures/.gitkeep
+!results/tables/.gitkeep
+
+# Setup and utility scripts
+!setup_environment.py
+!commit_all_files.sh
 
 # =============================================================================
 # REPRODUCIBILITY NOTES
@@ -289,6 +305,15 @@ config/secrets.yaml
 # To reproduce results:
 # 1. Clone repository
 # 2. Install dependencies from requirements.txt
-# 3. Download raw data to data/raw/
-# 4. Run scripts/run_analysis.py
-# 5. Results will be generated in results/
+# 3. Download When2Heat dataset to data/raw/
+# 4. Run python scripts/run_analysis.py
+# 5. Generate figures with python scripts/generate_figures.py
+# 6. Results will be generated in results/
+#
+# Project Structure:
+# - src/: Core source code modules
+# - scripts/: Main analysis and figure generation scripts
+# - notebooks/: EDA notebooks for data exploration
+# - config/: Configuration files
+# - results/: Analysis results, figures, and tables
+# - tests/: Unit tests and integration tests
