@@ -1,0 +1,7 @@
+Feature,Importance,Category
+Heat Demand (24h MA),0.25,Demand
+COP (24h Min),0.22,Efficiency
+Hour of Day,0.18,Time
+Heat Demand (168h MA),0.15,Demand
+Is Winter,0.12,Seasonal
+COP (168h Min),0.08,Efficiency
