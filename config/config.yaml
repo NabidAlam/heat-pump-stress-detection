@@ -1,0 +1,136 @@
+# Energy Publication Project Configuration
+# ======================================
+
+# Data configuration
+data:
+  raw_data_path: "data/raw/when2heat.csv"
+  processed_data_path: "data/processed/"
+  cache_dir: "data/cache/"
+
+# Stress detection configuration
+stress_detection:
+  demand_percentile: 90.0  # Percentile for high demand threshold
+  cop_percentile: 10.0     # Percentile for low COP threshold
+  seasonal_window: 168     # Hours for seasonal threshold calculation (1 week)
+  min_stress_duration: 1   # Minimum consecutive hours for stress event
+
+# Preprocessing configuration
+preprocessing:
+  imputation_method: "knn"      # knn, mean, median
+  scaling_method: "robust"      # robust, standard, minmax
+  outlier_detection: true
+  outlier_contamination: 0.1
+  essential_columns: ["heat_demand_total", "cop_average", "cop_ashp"]
+
+# Evaluation configuration
+evaluation:
+  test_size: 0.2
+  validation_size: 0.2
+  random_state: 42
+  cross_validation:
+    n_splits: 5
+    test_size: 0.2
+    shuffle: false  # Important for time series data
+
+# Model configuration
+models:
+  xgboost:
+    objective: "binary:logistic"
+    eval_metric: "logloss"
+    n_estimators: 100
+    learning_rate: 0.1
+    max_depth: 6
+    subsample: 0.8
+    colsample_bytree: 0.8
+    random_state: 42
+
+# Class balancing configuration (DISABLED - using cost-sensitive learning instead)
+class_balancing:
+  enabled: false
+  method: "smote"  # smote, adasyn, undersampling, smoteenn, smotetomek
+  target_ratio: 0.15  # Realistic target ratio (15% minority class)
+  smote_params:
+    k_neighbors: 5
+    random_state: 42
+
+# State-of-the-art cost-sensitive learning configuration (no synthetic data)
+cost_sensitive:
+  enabled: true
+  model_type: "xgboost"  # xgboost, random_forest, logistic, ensemble
+  cost_ratio: 5.0  # Cost ratio for false negatives vs false positives (5:1)
+  method: "threshold"  # threshold, weighted, focal
+
+# Threshold optimization configuration
+threshold_optimization:
+  enabled: true
+  optimization_metrics: ["f1", "gmean", "balanced_accuracy", "youden"]
+  cv_folds: 5
+  recommended_metric: "gmean"  # gmean, f1, balanced_accuracy, youden
+
+# Hyperparameter tuning configuration
+hyperparameter_tuning:
+  enabled: false  # Disabled for now to get basic system working
+  optimization_metric: "gmean"  # gmean, f1, balanced_accuracy, auc_pr
+  method: "optuna"  # optuna, randomized_search, grid_search
+  n_trials: 50  # Number of optimization trials (reduce for faster execution)
+  cv_folds: 5
+  tune_cost_ratio: true
+  save_results: true
+
+# Demand response configuration
+demand_response:
+  enabled: true
+  trigger_threshold: 0.6
+  shift_fraction: 0.1
+  max_shift_hours: 4
+  simulation_method: "heuristic"
+
+# Visualization configuration
+visualization:
+  style: "professional"
+  color_palette: "academic"
+  figure_size: [12, 8]
+  dpi: 300
+  save_format: "png"
+
+# Logging configuration
+logging:
+  level: "INFO"
+  format: "{time:HH:mm:ss} | {level} | {message}"
+  file_logging: true
+  log_file: "logs/analysis.log"
+
+# Output configuration
+output:
+  results_dir: "results/"
+  figures_dir: "results/figures/"
+  models_dir: "results/models/"
+  monitoring_dir: "results/monitoring/"
+  save_processed_data: true
+  save_feature_data: true
+  save_model: true
+  generate_plots: true
+
+# Performance configuration
+performance:
+  n_jobs: -1  # Use all available cores
+  memory_limit: "4GB"
+  chunk_size: 10000
+  use_gpu: false
+
+# Validation configuration
+validation:
+  check_data_quality: true
+  validate_results: true
+  check_realism: true
+  min_stress_rate: 0.001
+  max_stress_rate: 0.5
+  min_accuracy: 0.5
+  max_accuracy: 0.99
+
+# Reproducibility configuration
+reproducibility:
+  set_random_seeds: true
+  save_random_state: true
+  version_control: true
+  environment_file: "requirements.txt"
