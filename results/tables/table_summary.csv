@@ -1,0 +1,7 @@
+Table,Title,File
+Table 1,Model Performance Comparison,table_1_model_performance.csv
+Table 2,Demand Response Analysis,table_2_dr_analysis.csv
+Table 3,Dataset Characteristics,table_3_dataset_characteristics.csv
+Table 4,Threshold Optimization Results,table_4_threshold_optimization.csv
+Table 5,Feature Importance Analysis,table_5_feature_importance.csv
+Table 6,Statistical Significance Tests,table_6_statistical_significance.csv
