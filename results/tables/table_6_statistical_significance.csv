@@ -1,0 +1,7 @@
+Model 1,Model 2,P-Value,Significant,Effect Size
+Logistic Regression,Gradient Boosting,0.100,No,Small
+Logistic Regression,XGBoost,0.100,No,Small
+Gradient Boosting,Logistic Regression,0.050,No,Small
+Gradient Boosting,XGBoost,0.100,No,Small
+XGBoost,Logistic Regression,0.001,Yes,Medium
+XGBoost,Gradient Boosting,0.001,Yes,Medium
