@@ -1,0 +1,3 @@
+Scenario,Interventions,Peak Reduction (%),Efficiency (Reduction/Intervention),Average Reduction per Intervention
+Conservative,37,0.075,0.002037,0.0020%
+Aggressive,26,0.106,0.004073,0.0041%
