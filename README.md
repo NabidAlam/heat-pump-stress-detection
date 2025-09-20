@@ -206,9 +206,3 @@ If you use this project in your research, please cite:
   url={https://github.com/NabidAlam/heat-pump-stress-detection}
 }
 ```
-
-<!-- ## Contact
-
-- **Author**: Nabid Alam
-- **Email**: nabid.aust37@gmail.com
-- **GitHub**: [@NabidAlam](https://github.com/NabidAlam) -->
